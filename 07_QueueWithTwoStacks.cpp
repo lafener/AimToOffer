@@ -15,14 +15,19 @@ int push(stack<int> &stack1, int num)
 int pop(stack<int> &stack1, stack<int> &stack2)
 {
 	int num;
+	//stack2不为空，则stack2中的元素先出栈
 	if (!stack2.empty())
 	{
 		num = stack2.top();
 		stack2.pop();
 		return num;
 	}
-	if (stack1.empty())
+	//若stack2为空，则执行至该部分
+	else if (stack1.empty())
+	{
 		return -1;
+	}
+	//stack2为空，而stack1不为空
 	while (!stack1.empty())
 	{
 		num = stack1.top();
